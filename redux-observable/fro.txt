@@ -1,0 +1,6 @@
+https://egghead.io/courses/up-and-running-with-redux-observable
+
+
+Now :
+
+https://egghead.io/courses/asynchronous-state-management-with-redux-observable-v1
