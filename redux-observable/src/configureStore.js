@@ -1,6 +1,6 @@
 import {createStore, combineReducers } from 'redux';
 
-import appReducer from './Reducers/appReducer.js';
+import { appReducer } from './Reducers/appReducer';
 
 
 export default function configureStore(){
@@ -9,6 +9,5 @@ export default function configureStore(){
     app: appReducer
   })
 
-
- return createStore(appReducer);
+ return createStore(rootReducer);
 }
