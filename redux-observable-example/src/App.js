@@ -4,7 +4,7 @@ import './App.css';
 import { connect } from 'react-redux';
 
 function App(props) {
-  console.log('6 - inside App.js  props = ', props );
+  console.log('6 - inside App.js  props = ', props.name );
   return (
     <div className="App">
       <header className="App-header">

@@ -1,12 +1,14 @@
-import {createStore, combineReducers, applyMiddleware } from 'redux';
+import {createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
 import { appReducer } from './Reducers/appReducer';
 
 import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 // epic just provide the stream of observables.
 
-const epic1 = () => of({ type: "SET_NAME", payload: "Sally"});
+const epic1 = () => of({ type: "SET_NAME", payload: "Sally"}).pipe(delay(2000));
 
 export default function configureStore(){
 
@@ -18,8 +20,10 @@ export default function configureStore(){
     app: appReducer
   })
 
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
   // since we need to initialzie this root epic.
-  const store =  createStore(rootReducer, applyMiddleware(epicMiddleware));
+  const store =  createStore(rootReducer, composeEnhancers (applyMiddleware(epicMiddleware)));
 
     epicMiddleware.run(rootEpic);
 
