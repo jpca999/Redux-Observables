@@ -9,5 +9,6 @@ export default function configureStore(){
     app: appReducer
   })
 
+
  return createStore(appReducer);
 }
