@@ -10,7 +10,6 @@ import { combineEpics, createEpicMiddleware } from 'redux-observable';
 
 // const epic1 = () => of({ type: "SET_NAME", payload: "Sally"}).pipe(delay(2000));
 
-
 export default function configureStore(){
 
   const rootEpic = combineEpics(fetchBeersEpic);
